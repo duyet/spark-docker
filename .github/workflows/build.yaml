@@ -1,0 +1,19 @@
+name: Build and Push Docker
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build_aws:
+    name: Build 
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      name: Check out code
+    - name: Checkout Spark source code
+      run: |
+        wget https://www.apache.org/dyn/closer.lua/spark/spark-3.0.0-preview2/spark-3.0.0-preview2-bin-hadoop2.7.tgz
+        tar zxvf spark-3.0.0-preview2-bin-hadoop2.7.tgz
+        cd spark-3.0.0-preview2-bin-hadoop2.7
+        ./bin/docker-image-tool.sh -r duyetdev/spark -t v3.0.0 build
