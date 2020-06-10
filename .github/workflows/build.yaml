@@ -11,9 +11,12 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       name: Check out code
-    - name: Checkout Spark source code
+    - name: Build and Push Spark 3.0.0
       run: |
-        wget http://mirrors.viethosting.com/apache/spark/spark-3.0.0-preview2/spark-3.0.0-preview2-bin-hadoop3.2.tgz
-        tar zxf spark-3.0.0-preview2.tgz
-        cd spark-3.0.0-preview2
-        ./bin/docker-image-tool.sh -r duyetdev/spark -t v3.0.0 build
+        export SPARK_VERSION=3.0.0
+        export DOCKER_REPO=duyetdev/spark
+        wget http://mirrors.viethosting.com/apache/spark/spark-$SPARK_VERSION-preview2/spark-$SPARK_VERSION-preview2-bin-hadoop3.2.tgz
+        tar zxf spark-$SPARK_VERSION-preview2-bin-hadoop3.2.tgz
+        cd spark-$SPARK_VERSION-preview2-bin-hadoop3.2
+        ./bin/docker-image-tool.sh -r $DOCKER_REPO -t v$SPARK_VERSION build
+        ./bin/docker-image-tool.sh -r $DOCKER_REPO -t v$SPARK_VERSION push
