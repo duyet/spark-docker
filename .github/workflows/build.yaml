@@ -13,7 +13,7 @@ jobs:
       name: Check out code
     - name: Checkout Spark source code
       run: |
-        wget https://www.apache.org/dyn/closer.lua/spark/spark-3.0.0-preview2/spark-3.0.0-preview2-bin-hadoop2.7.tgz
-        tar zxvf spark-3.0.0-preview2-bin-hadoop2.7.tgz
-        cd spark-3.0.0-preview2-bin-hadoop2.7
+        wget http://mirrors.viethosting.com/apache/spark/spark-3.0.0-preview2/spark-3.0.0-preview2.tgz
+        tar zxvf spark-3.0.0-preview2.tgz
+        cd spark-3.0.0-preview2
         ./bin/docker-image-tool.sh -r duyetdev/spark -t v3.0.0 build
