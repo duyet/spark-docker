@@ -14,9 +14,10 @@ jobs:
     - name: Build and Push Spark 3.0.0
       run: |
         export SPARK_VERSION=3.0.0
-        export DOCKER_REPO=duyetdev/spark
-        wget http://mirrors.viethosting.com/apache/spark/spark-$SPARK_VERSION-preview2/spark-$SPARK_VERSION-preview2-bin-hadoop3.2.tgz
+        export DOCKER_REPO=duyetdev
+        wget -q http://mirrors.viethosting.com/apache/spark/spark-$SPARK_VERSION-preview2/spark-$SPARK_VERSION-preview2-bin-hadoop3.2.tgz
         tar zxf spark-$SPARK_VERSION-preview2-bin-hadoop3.2.tgz
         cd spark-$SPARK_VERSION-preview2-bin-hadoop3.2
         ./bin/docker-image-tool.sh -r $DOCKER_REPO -t v$SPARK_VERSION build
+        docker login --username=${{ secrets.DOCKER_USERNAME }} --password=${{ secrets.DOCKER_PASSWORD }} 
         ./bin/docker-image-tool.sh -r $DOCKER_REPO -t v$SPARK_VERSION push
