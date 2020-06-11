@@ -16,7 +16,7 @@ jobs:
         export SPARK_VERSION=3.0.0
         export DOCKER_REPO=duyetdev
         wget -q -O spark.tgz http://mirrors.viethosting.com/apache/spark/spark-3.0.0-preview2/spark-3.0.0-preview2-bin-without-hadoop.tgz
-        tar zxf spark.tgz
+        tar zxf spark.tgz -C spark
         cd spark
         ./bin/docker-image-tool.sh -r $DOCKER_REPO -t v$SPARK_VERSION -p ./kubernetes/dockerfiles/spark/bindings/python/Dockerfile build
         docker login --username=${{ secrets.DOCKER_USERNAME }} --password=${{ secrets.DOCKER_PASSWORD }} 
