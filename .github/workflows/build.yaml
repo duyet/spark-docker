@@ -32,9 +32,9 @@ jobs:
           IMAGE_TAG: ${{matrix.tag}}
         with:
           context: ${{ github.workspace }}
-          file: ./spark-py/$IMAGE_TAG/Dockerfile
+          file: ./spark-py/${{ env.IMAGE_TAG }}/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/spark-py:$IMAGE_TAG
+          tags: ${{ secrets.DOCKER_USERNAME }}/spark-py:${{ env.IMAGE_TAG }}
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
