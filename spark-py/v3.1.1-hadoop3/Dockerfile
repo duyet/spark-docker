@@ -3,7 +3,7 @@ USER root
 
 # Add s3a connector
 ADD https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-aws/3.3.1/hadoop-aws-3.3.1.jar $SPARK_HOME/jars
-ADD https://repo1.maven.org/maven2/com/amazonaws/aws-java-sdk-bundle/1.12.75/aws-java-sdk-bundle-1.12.75.jar $SPARK_HOME/jars
+ADD https://repo1.maven.org/maven2/com/amazonaws/aws-java-sdk-bundle/1.11.271/aws-java-sdk-bundle-1.11.271.jar $SPARK_HOME/jars
 
 # Install python packages
 RUN pip3 install boto3 aliyun-python-sdk-core sentry-sdk oss2
