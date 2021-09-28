@@ -6,12 +6,11 @@ on:
 
 jobs:
   build_aws:
-    name: Build 
+    name: Build spark-py
     runs-on: ubuntu-latest
     strategy:
       matrix:
         tag: [v3.1.1-hadoop3]
-
     steps:
       - name: Checkout 
         uses: actions/checkout@v2
@@ -32,7 +31,7 @@ jobs:
         env:
           IMAGE_TAG: ${{matrix.tag}}
         with:
-          context: ./
+          context: ${{ github.workspace }}
           file: ./spark-py/$IMAGE_TAG/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/spark-py:$IMAGE_TAG
