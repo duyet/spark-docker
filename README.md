@@ -9,6 +9,15 @@ https://hub.docker.com/r/duyetdev/spark
 https://hub.docker.com/r/duyetdev/spark-py
 ```
 
+# Image information
+
+## spark-py
+
+Base image from gcr.io/spark-operator/spark-py, adding some jar files to support AWS.
+
+- hadoop-aws-3.3.1.jar
+- aws-java-sdk-bundle-1.11.271.jar
+
 # Usage
 
 ```bash
