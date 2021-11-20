@@ -8,7 +8,7 @@ ADD https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-aws/$HADOOP_VERSION/
 ADD https://repo1.maven.org/maven2/com/amazonaws/aws-java-sdk-bundle/$AWS_SDK_VERSION/aws-java-sdk-bundle-$AWS_SDK_VERSION.jar $SPARK_HOME/jars
 
 # Install python packages
-RUN pip3 install boto3 aliyun-python-sdk-core sentry-sdk oss2 orjson tenacity numpy pandas geoip2 psycopg2-binary
+RUN pip3 install boto3 aliyun-python-sdk-core sentry-sdk oss2 orjson tenacity numpy pandas geoip2 psycopg2-binary iso8601
 
 # Setup for the Prometheus JMX exporter.
 # Add the Prometheus JMX exporter Java agent jar for exposing metrics sent to the JmxSink to Prometheus.
