@@ -50,7 +50,7 @@ jobs:
           {%- endfor %}
     env:
       IMAGE_NAME: {{ image_name }}
-      IMAGE_TAG: '{% raw %}{{ matrix.tags }}{% endraw %}'
+      IMAGE_TAG: '{% raw %}${{ matrix.tags }}{% endraw %}'
     {%- raw %}
     steps:
       - name: Checkout

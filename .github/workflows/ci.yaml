@@ -17,7 +17,7 @@ jobs:
           - v1beta2-1.2.2-3.1.1
     env:
       IMAGE_NAME: spark-operator
-      IMAGE_TAG: '{{ matrix.tags }}'
+      IMAGE_TAG: '${{ matrix.tags }}'
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -64,7 +64,7 @@ jobs:
           - v3.1.1-hadoop3
     env:
       IMAGE_NAME: spark-py
-      IMAGE_TAG: '{{ matrix.tags }}'
+      IMAGE_TAG: '${{ matrix.tags }}'
     steps:
       - name: Checkout
         uses: actions/checkout@v2
