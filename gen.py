@@ -62,6 +62,7 @@ jobs:
           filters: |
              src:
               - '${{ env.IMAGE_NAME }}/${{ matrix.tags }}/**'
+              - '.github/workflows/ci.yaml'
 
       - name: Login to Docker Hub
         if: steps.changes.outputs.src == 'true'

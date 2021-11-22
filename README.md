@@ -12,14 +12,14 @@
 
 ## spark-py
 
-Base image from gcr.io/spark-operator/spark-py, adding some jar files to support AWS.
+Base image from `gcr.io/spark-operator/spark-py`, adding some jar files to support AWS.
 
 - hadoop-aws-3.3.1.jar
 - aws-java-sdk-bundle-1.11.271.jar
 
 ## spark-operator
 
-Base image from gcr.io/spark-operator/spark-operator, adding some jar files to support AWS.
+Base image from `gcr.io/spark-operator/spark-operator`, adding some jar files to support AWS.
 
 - hadoop-aws-3.3.1.jar
 - aws-java-sdk-bundle-1.11.271.jar
