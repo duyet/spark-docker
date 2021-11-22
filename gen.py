@@ -82,7 +82,7 @@ jobs:
         with:
           context: ${{ github.workspace }}
           file: ./${{ env.IMAGE_NAME }}/${{ env.IMAGE_TAG }}/Dockerfile
-          tags: ${{ secrets.DOCKER_USERNAME }}/${{ env.BASE }}:${{ env.IMAGE_TAG }}
+          tags: ${{ secrets.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
           push: true
 
       - name: Image digest
