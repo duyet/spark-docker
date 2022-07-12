@@ -36,6 +36,13 @@ docker pull duyetdev/spark-operator:v1beta2-1.2.3-3.1.1
 Github Workflows will detect changes, build and publish images to `duyetdev/*` on Docker Hub.
 
 Need to generate the `.github/workflows/ci.yaml` whenever adding new image name or image tags folders.
+For example, adding
+
+```
+spark-operator/<tag>/Dockerfile
+```
+
+Run the command below to generate
 
 ```bash
 pip3 install jinja2
