@@ -40,7 +40,7 @@ jobs:
       - name: Set up Docker Buildx
         if: steps.changes.outputs.src == 'true'
         id: buildx
-        uses: docker/setup-buildx-action@v2
+        uses: docker/setup-buildx-action@v1
 
       - name: Build and push
         if: steps.changes.outputs.src == 'true'
@@ -62,6 +62,7 @@ jobs:
     strategy:
       matrix:
         tags:
+          - v3.3.0-hadoop3
           - v3.1.1-hadoop3
     env:
       IMAGE_NAME: spark-py
@@ -88,7 +89,7 @@ jobs:
       - name: Set up Docker Buildx
         if: steps.changes.outputs.src == 'true'
         id: buildx
-        uses: docker/setup-buildx-action@v2
+        uses: docker/setup-buildx-action@v1
 
       - name: Build and push
         if: steps.changes.outputs.src == 'true'
