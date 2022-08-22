@@ -7,6 +7,10 @@ ENV AWS_SDK_VERSION 1.11.271
 ADD https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-aws/$HADOOP_VERSION/hadoop-aws-$HADOOP_VERSION.jar $SPARK_HOME/jars
 ADD https://repo1.maven.org/maven2/com/amazonaws/aws-java-sdk-bundle/$AWS_SDK_VERSION/aws-java-sdk-bundle-$AWS_SDK_VERSION.jar $SPARK_HOME/jars
 
+RUN curl https://archive.apache.org/dist/spark/spark-3.2.1/spark-3.2.1-bin-hadoop3.2.tgz --output spark.tgz
+RUN tar -xvzf ./spark.tgz -C ./
+RUN cp ./spark-3.2.1-bin-hadoop3.2/jars/* $SPARK_HOME/jars
+
 # Install python packages
 RUN apt-get update --allow-releaseinfo-change && \
     apt-get install -y libsasl2-dev && \
