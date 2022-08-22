@@ -7,16 +7,16 @@ ENV AWS_SDK_VERSION 1.11.271
 ADD https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-aws/$HADOOP_VERSION/hadoop-aws-$HADOOP_VERSION.jar $SPARK_HOME/jars
 ADD https://repo1.maven.org/maven2/com/amazonaws/aws-java-sdk-bundle/$AWS_SDK_VERSION/aws-java-sdk-bundle-$AWS_SDK_VERSION.jar $SPARK_HOME/jars
 
-RUN curl https://archive.apache.org/dist/spark/spark-3.2.1/spark-3.2.1-bin-hadoop3.2.tgz --output spark.tgz
-RUN tar -xvzf ./spark.tgz -C ./
-RUN cp ./spark-3.2.1-bin-hadoop3.2/jars/* $SPARK_HOME/jars
-
 # Install python packages
 RUN apt-get update --allow-releaseinfo-change && \
     apt-get install -y libsasl2-dev && \
     pip3 install boto3 aliyun-python-sdk-core sentry-sdk oss2 \
        orjson tenacity numpy pandas geoip2 psycopg2-binary \
-       pyorc pycryptodome asn1crypto pycrypto
+       pyorc pycryptodome asn1crypto pycrypto curl && \
+    curl https://archive.apache.org/dist/spark/spark-3.2.1/spark-3.2.1-bin-hadoop3.2.tgz --output spark.tgz && \
+    tar -xvzf ./spark.tgz -C ./ && \
+    cp ./spark-3.2.1-bin-hadoop3.2/jars/* $SPARK_HOME/jars && \
+    rm -rf ./spark-3.2.1-bin-hadoop3.2 spark.tgz
 
 # Setup for the Prometheus JMX exporter.
 # Add the Prometheus JMX exporter Java agent jar for exposing metrics sent to the JmxSink to Prometheus.
