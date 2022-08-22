@@ -7,6 +7,7 @@ ENV HADOOP_VERSION 3.3.0
 ENV AWS_SDK_VERSION 1.11.375
 ADD https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-aws/$HADOOP_VERSION/hadoop-aws-$HADOOP_VERSION.jar $SPARK_HOME/jars
 ADD https://repo1.maven.org/maven2/com/amazonaws/aws-java-sdk-bundle/$AWS_SDK_VERSION/aws-java-sdk-bundle-$AWS_SDK_VERSION.jar $SPARK_HOME/jars
+ADD https://repo1.maven.org/maven2/com/google/guava/guava/31.1-jre/guava-31.1-jre.jar $SPARK_HOME/jars
 
 # Install python packages
 RUN apt-get update --allow-releaseinfo-change curl && \
