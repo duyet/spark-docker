@@ -12,7 +12,7 @@ RUN apt-get update --allow-releaseinfo-change && \
     apt-get install -y libsasl2-dev curl && \
     pip3 install boto3 aliyun-python-sdk-core sentry-sdk oss2 \
        orjson tenacity numpy pandas geoip2 psycopg2-binary \
-       pyorc pycryptodome asn1crypto pycrypto && \
+       pyorc pycryptodome asn1crypto pycrypto pyyaml && \
     curl https://archive.apache.org/dist/spark/spark-3.2.1/spark-3.2.1-bin-hadoop3.2.tgz --output spark.tgz && \
     tar -xvzf ./spark.tgz -C ./ && \
     cp ./spark-3.2.1-bin-hadoop3.2/jars/* $SPARK_HOME/jars && \
