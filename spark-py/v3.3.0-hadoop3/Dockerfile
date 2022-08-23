@@ -4,7 +4,7 @@ USER root
 # Add s3a connector
 ENV HADOOP_VERSION 3.3.2
 # https://github.com/apache/spark/blob/v3.3.0/resource-managers/kubernetes/integration-tests/pom.xml#L227
-ENV AWS_SDK_VERSION 1.11.375
+ENV AWS_SDK_VERSION 1.12.122
 ADD https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-aws/$HADOOP_VERSION/hadoop-aws-$HADOOP_VERSION.jar $SPARK_HOME/jars
 ADD https://repo1.maven.org/maven2/com/amazonaws/aws-java-sdk-bundle/$AWS_SDK_VERSION/aws-java-sdk-bundle-$AWS_SDK_VERSION.jar $SPARK_HOME/jars
 
