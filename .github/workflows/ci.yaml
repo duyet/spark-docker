@@ -40,7 +40,7 @@ jobs:
       - name: Set up Docker Buildx
         if: steps.changes.outputs.src == 'true'
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Build and push
         if: steps.changes.outputs.src == 'true'
@@ -89,7 +89,7 @@ jobs:
       - name: Set up Docker Buildx
         if: steps.changes.outputs.src == 'true'
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Build and push
         if: steps.changes.outputs.src == 'true'
