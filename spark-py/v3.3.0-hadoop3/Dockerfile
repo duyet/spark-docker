@@ -1,4 +1,4 @@
-FROM apache/spark-py:v3.3.0
+FROM apache/spark-py:v3.4.0
 USER root
 
 # Add s3a connector
