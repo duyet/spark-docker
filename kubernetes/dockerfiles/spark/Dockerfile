@@ -15,7 +15,7 @@
 # limitations under the License.
 #
 
-FROM openjdk:18-jdk-slim
+FROM openjdk:21-jdk-slim
 
 ARG spark_uid=185
 
