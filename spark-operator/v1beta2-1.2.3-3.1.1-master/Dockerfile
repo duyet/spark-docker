@@ -1,7 +1,7 @@
 ARG SPARK_IMAGE=gcr.io/spark-operator/spark-operator:v1beta2-1.2.3-3.1.1
 
 # Build spark-operator binary from master branch
-FROM golang:1.15.2-alpine as builder
+FROM golang:1.22.1-alpine as builder
 WORKDIR /workspace
 RUN apk update && apk add git && \
     git clone --depth 1 https://github.com/GoogleCloudPlatform/spark-on-k8s-operator && \
